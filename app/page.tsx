@@ -1,3 +1,3 @@
 export default function Home() {
-  return <main>Loja Inovatech</main>;
+  return <div>Loja Inovatech</div>;
 }
