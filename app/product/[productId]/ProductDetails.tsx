@@ -6,6 +6,23 @@ interface ProductDetailsprops {
   product: any;
 }
 
+export type CartProduct = {
+    id: string,
+    name: string,
+    description: string,
+    category: string,
+    brand: string,
+    selectedImg: selectedImgType,
+    quantity: number,
+    price: number
+}
+
+export type selectedImgType = {
+    color: string,
+    colorCod: string,
+    image: string,
+}
+
 const Horizontal = () => {
   return <hr className="w-[30%] my-2" />;
 };
