@@ -11,7 +11,7 @@ interface ListRatingProps {
 const ListRating: React.FC<ListRatingProps> = ({ product }) => {
   return (
     <div>
-      <Heading title="Avaliação do Produto" />
+      <Heading title="Opiniões sobre o Produto" />
       <div className="text-sm mt-2">
         {" "}
         {product.reviews &&
