@@ -15,6 +15,7 @@ const NavBar = () => {
                 src="/logo.png"
                 alt="Inovatech Logo"
                 className="h-10 cursor-pointer"
+                style={{ filter: 'blur(0.4px)' }}
               />
             </Link>
             <div className="hidden md:block">Buscar</div>
