@@ -41,7 +41,9 @@ export const CartContextProvider = (props: Props) => {
       } else {
         updatedCart = [product];
       }
-      toast.success("Produto adicionado ao carrinho!");
+      toast.success("Produto adicionado ao carrinho!", {
+        id: "unique-toast-id",
+      });
       localStorage.setItem("eShopCartItems", JSON.stringify(updatedCart));
       return updatedCart;
     });
