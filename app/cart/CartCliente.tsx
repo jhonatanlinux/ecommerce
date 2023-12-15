@@ -2,6 +2,8 @@
 import { useCart } from "@/hooks/userCart";
 import Link from "next/link";
 import { MdArrowBack } from "react-icons/md";
+import Heading from "../components/Heading";
+import Button from "../components/Button";
 
 const CartClient = () => {
   const { cartProducts } = useCart();
@@ -21,7 +23,42 @@ const CartClient = () => {
       </div>
     );
   }
-  return <div></div>;
+  return (
+    <div>
+      <Heading title="Seu carrinho de compras!" center />
+      <div className="grid grid-cols-5 text-xs gap-4 pb-2 items-center mt-8">
+        <div className="col-span-2 justify-self-start">PRODUTOS</div>
+        <div className="justify-self-center">VALOR</div>
+        <div className="justify-self-center">QUANTIDADE</div>
+        <div className="justify-self-end">TOTAL</div>
+      </div>
+      <div>
+        {cartProducts &&
+          cartProducts.map((item) => {
+            return <div key={item.id}>{item.name}</div>;
+          })}
+      </div>
+      <div className="border-t[1.5px] border-slate-200 py-4 flex justify-between gap-4">
+        <div className="w-[90px]">
+          <Button label="Limpar carrinho!" onClick={() => {}} small outline />
+        </div>
+        <div className="text-sm flex flex-col gap-1 items-start">
+          <div className="flex justify-between w-full text-base font-semibold">
+            <span>Total</span>
+            <span>R$ 3500</span>
+          </div>
+          <p className="text-slate-400">Impostos e frete serão calculados ao finalizar a compra!</p>
+          <Button label="Finalizar compra." onClick={() =>{
+
+          }}/>
+          <Link href={"/"} className="text-slate-500 flex items-center gap-1 mt-2">
+            <MdArrowBack/>
+            <span>Continuar comprando!</span>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default CartClient;
