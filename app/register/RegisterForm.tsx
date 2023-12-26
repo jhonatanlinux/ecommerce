@@ -31,27 +31,38 @@ const RegisterForm = () => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
 
+    console.log("Enviando dados para registro:", data);
+
     axios
       .post("/api/register", data)
       .then(() => {
+        console.log("Conta Criada!");
         toast.success("Conta Criada!");
 
-        signIn("credential", {
+        signIn("credentials", {
           email: data.email,
-          password: data.passwor,
+          password: data.password,
           redirect: false,
         }).then((callback) => {
+          console.log("Callback do signIn:", callback);
+
           if (callback?.ok) {
+            console.log("Usuário autenticado com sucesso!");
             router.push("/cart");
             router.refresh();
-            toast.success("Você esta Logado!");
+            toast.success("Você está Logado!");
           }
+
           if (callback?.error) {
+            console.error("Erro durante a autenticação:", callback.error);
             toast.error(callback.error);
           }
         });
       })
-      .catch(() => toast.error("Tente mais tarde!"))
+      .catch((error) => {
+        console.error("Erro durante o registro:", error);
+        toast.error("Tente mais tarde!");
+      })
       .finally(() => {
         setIsLoading(false);
       });

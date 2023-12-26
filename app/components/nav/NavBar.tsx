@@ -1,5 +1,6 @@
+"use client";
 import Link from "next/link";
-import Container from "../products/Container";
+import Container from "../Container";
 import { Redressed } from "next/font/google";
 import CartCount from "./CartCount";
 

@@ -1,4 +1,4 @@
-import Container from "../../app/components/products/Container";
+import Container from "../components/Container";
 import CartClient from "./CartCliente";
 
 const Cart = () => {

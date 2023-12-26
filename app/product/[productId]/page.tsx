@@ -1,5 +1,5 @@
 import ProductDetails from "./ProductDetails";
-import Container from "@/app/components/products/Container";
+import Container from "@/app/components/Container";
 import ListRating from "./ListRating";
 import { products } from "@/utils/products";
 
